@@ -235,4 +235,3 @@ $('#successModal').on('shown.bs.modal', function () {
     bootstrap.Modal.getInstance(this).hide();
   }, 2500);
 });
-

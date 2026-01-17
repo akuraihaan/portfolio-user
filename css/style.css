@@ -449,3 +449,140 @@ button[disabled] {
   opacity: .75;
   cursor: not-allowed;
 }
+
+/* =====================================================
+   PORTFOLIO INTERACTIVE WOW
+===================================================== */
+
+.portfolio-item {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  /* background: #000; */
+  transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(.22,1,.36,1);
+}
+
+/* Hover depth */
+@media (hover: hover) {
+  .portfolio-item:hover {
+    transform: translateY(-12px) scale(1.02);
+  }
+}
+
+/* Thumbnail */
+.portfolio-thumb {
+  width: 100%;
+  height: 260px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform .8s cubic-bezier(.22,1,.36,1),
+              filter .6s ease;
+}
+
+/* Zoom + blur halus */
+@media (hover: hover) {
+  .portfolio-item:hover .portfolio-thumb {
+    transform: scale(1.12);
+    filter: brightness(.65);
+  }
+}
+
+/* Overlay dasar */
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.75),
+    rgba(0,0,0,.35),
+    rgba(0,0,0,.1)
+  );
+
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+/* Muncul saat hover */
+@media (hover: hover) {
+  .portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+  }
+}
+
+/* Konten overlay */
+.portfolio-content {
+  text-align: center;
+  color: #fff;
+  transform: translateY(18px);
+  transition: transform .5s cubic-bezier(.22,1,.36,1);
+}
+
+/* Konten naik */
+@media (hover: hover) {
+  .portfolio-item:hover .portfolio-content {
+    transform: translateY(0);
+  }
+}
+
+.portfolio-content h6 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.portfolio-content span {
+  font-size: .9rem;
+  opacity: .85;
+}
+
+/* Ikon aksi */
+.portfolio-action {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(6px);
+
+  font-size: .85rem;
+  transition: transform .35s ease, background .35s ease;
+}
+
+.portfolio-action i {
+  font-size: 1rem;
+}
+
+/* Efek hover ikon */
+@media (hover: hover) {
+  .portfolio-item:hover .portfolio-action {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.25);
+  }
+}
+
+/* =============================
+   MOBILE BEHAVIOR (NO HOVER)
+============================= */
+@media (max-width: 768px) {
+  .portfolio-overlay {
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,.7),
+      rgba(0,0,0,.2)
+    );
+  }
+
+  .portfolio-content {
+    transform: translateY(0);
+  }
+}
