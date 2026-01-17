@@ -205,7 +205,7 @@ $(document).on('click', '.btn', function () {
 $('.navbar-toggler').on('click', function () {
   haptic(15);
 });
-
+  
 
 
 /* =====================================================
@@ -215,7 +215,6 @@ $('.navbar-toggler').on('click', function () {
 $('#contactForm').on('submit', function (e) {
   e.preventDefault();
 
-   haptic(30); // saat klik kirim
   const $form = $(this);
   const $btn = $form.find('button[type="submit"]');
 
@@ -237,8 +236,6 @@ $('#contactForm').on('submit', function (e) {
     $btn.prop('disabled', false)
         .css({ transform: 'scale(1)' })
         .text('Kirim Pesan');
-
-        haptic([20, 40]); // sukses terkirim
 
     // Tampilkan modal (Bootstrap sudah handle fade)
     const successModal = new bootstrap.Modal(
